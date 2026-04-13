@@ -1,11 +1,9 @@
-# Sorted
+Sorted
 **An autonomous hangout planning app that turns messy group chats into actual plans.**
 
 Sorted automatically handles scheduling, decision-making, and itinerary creation so no one has to organise. I built this project to explore real-time systems, decision engines, and social UX. The focus is on functionality and behaviour rather than polish.
-
 ---
-
-## 📦 Tech Stack
+📦 Tech Stack
 - Vite  
 - React.js  
 - TypeScript  
@@ -13,18 +11,14 @@ Sorted automatically handles scheduling, decision-making, and itinerary creation
 - PostgreSQL  
 - Socket.IO  
 - CSS  
-
 ---
-
-## 🕶️ Features
+🕶️ Features
 
 Here’s what you can do with Sorted:
 
 ### Create a Hangout
 Start with a rough idea (e.g. “dinner this weekend”) and invite your group via a link.
-
 ---
-
 ### Mark Availability
 Tap to mark when you’re free using simple time blocks:
 - Morning  
@@ -33,9 +27,7 @@ Tap to mark when you’re free using simple time blocks:
 - Night  
 
 Sorted finds the best overlap automatically.
-
 ---
-
 ### Auto-Scheduling
 No one has to pick a time.  
 Sorted detects the best slot and locks it in when enough people are available.
