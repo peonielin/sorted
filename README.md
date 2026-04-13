@@ -1,171 +1,83 @@
 Sorted
-**An autonomous hangout planning app that turns messy group chats into actual plans.**
-
-Sorted automatically handles scheduling, decision-making, and itinerary creation so no one has to organise. I built this project to explore real-time systems, decision engines, and social UX. The focus is on functionality and behaviour rather than polish.
 ---
+Your group chat has the ideas — Sorted handles the rest.
+
+This is an autonomous hangout planning app that turns messy group chats into actual plans. It automatically handles scheduling, decision-making, and itinerary creation so no one has to organise. I built this project to explore real-time systems, decision engines, and social UX. The focus is on functionality and behaviour rather than polish.
+
 📦 Tech Stack
-- Vite  
-- React.js  
-- TypeScript  
-- Node.js (Express)  
-- PostgreSQL  
-- Socket.IO  
-- CSS  
 ---
-🕶️ Features
+* Vite
+* React.js
+* TypeScript
+* Node.js (Express)
+* PostgreSQL
+* Socket.IO
+* CSS
 
+🦄 Features
+---
 Here’s what you can do with Sorted:
 
-### Create a Hangout
-Start with a rough idea (e.g. “dinner this weekend”) and invite your group via a link.
+* **Create a hangout**: Start with a rough idea (e.g. “dinner this weekend”) and invite your group via a link.
+* **Mark availability**: Tap simple time blocks (morning, arvo, evening, night) so Sorted can find the best overlap.
+* **Auto scheduling**: Sorted automatically finds and locks the best time when enough people are available.
+* **Planning chat**: A lightweight chat focused only on decisions, not social noise (inline polls, system updates).
+* **Auto decision engine**: Detects suggestions, agreement, and rejection in chat and automatically pins decisions.
+* **Dynamic updates**: If the group changes direction, Sorted updates the plan automatically.
+* **Smart interventions**: Handles split decisions, non-responsive users, and duplicates with polls and nudges.
+* **System personality**: Human-like messages such as “Looks split 👀”, “Almost there…”, “Just waiting on Ryan”.
+* **Dynamic itinerary**: Generates a structured plan (time, venue, who’s coming, who’s bringing what, checklists).
+
+👩‍🍳 The Process
 ---
-### Mark Availability
-Tap to mark when you’re free using simple time blocks:
-- Morning  
-- Afternoon  
-- Evening  
-- Night  
+I started by focusing on the core problem — plans dying in group chats — and designed Sorted around removing all coordination effort.
 
-Sorted finds the best overlap automatically.
+First, I built the availability system so users could respond in under 10 seconds using simple time blocks instead of complex calendars.
+
+Next, I built the scheduling engine that finds overlap and automatically locks in a time when enough people are available.
+
+Then I built the decision engine, which detects suggestions, agreement, and rejection from chat messages and assigns confidence scores to decide when something should be pinned.
+
+After that, I implemented real-time updates using Socket.IO so all users see changes instantly.
+
+I then added the auto-pin system so decisions build themselves dynamically as the conversation evolves.
+
+Finally, I built the itinerary generator, which converts pinned decisions into structured plans depending on the type of hangout (dinner, picnic, house party, etc.), and added a personality layer to make the system feel more human.
+
+📚 What I Learned
 ---
-### Auto-Scheduling
-No one has to pick a time.  
-Sorted detects the best slot and locks it in when enough people are available.
+A lot of things around systems thinking, but mainly:
 
+* How to turn human behaviour (agreement, disagreement, indecision) into logic
+* How to design systems instead of individual features
+* How edge cases define product quality (split decisions, non-response, conflicts)
+* How real-time systems work using WebSockets
+* How small UX details (like tone and nudges) change user behaviour
+* That simple rule-based systems can go very far without heavy AI
+
+💭 What Can Be Improved?
 ---
+* Add AI-based intent detection for better decision accuracy
+* Integrate Google / Apple Calendar
+* Add venue recommendations (restaurants, activities)
+* Improve UI polish and responsiveness
+* Add expense splitting
+* Add user preference learning (food, timing, etc.)
+* Improve notification timing and personalization
 
-### Planning Chat (Purpose-Built)
-A lightweight chat designed for decisions, not conversation:
-- Inline polls  
-- System updates  
-- No read receipts or typing indicators  
-
+🚦 Running the Project
 ---
+To run Sorted locally:
 
-### Auto Decision Engine
-Sorted listens to the chat and:
-- Detects suggestions (“let’s do BBQ”)  
-- Tracks agreement (“keen”, “I’m in”)  
-- Identifies rejection (“too far”, “nah”)  
+* Clone the repository
+* Run `npm install`
+* Run `npm run dev`
+* Open `http://localhost:3000`
 
-Then automatically pins decisions and updates them if the group changes direction.
-
+🍿 Final Thought
 ---
+Sorted isn’t just a planner.
 
-### Smart Interventions
-When things get messy, Sorted steps in:
+It’s an attempt to answer:
 
-- Split decision → auto poll  
-- No responses → nudges users  
-- One person spamming → ignored  
-- Duplicate plans → surfaced  
-
----
-
-### System Personality
-The app feels human with subtle nudges:
-
-- “Looks split 👀”  
-- “Almost there…”  
-- “Just waiting on Ryan”  
-
-This keeps momentum without forcing users.
-
----
-
-### Dynamic Itinerary
-Sorted turns decisions into a structured plan:
-
-- Time & location  
-- Who’s coming  
-- Who’s bringing what  
-- Checklists (for picnics, etc.)  
-
-Adapts based on the type of hangout.
-
----
-
-## 👩🏽‍🍳 The Process
-
-I started by focusing on the **core problem** — plans dying in group chats — and designed the system around removing coordination effort completely.
-
-First, I built the **availability system**, allowing users to respond in under 10 seconds using simple time blocks instead of complex calendars.
-
-Next, I implemented the **scheduling engine**, which calculates overlap and automatically locks in a time when enough people are available.
-
-After that, I worked on the **decision engine**, which is the core of the product. It processes chat messages to detect suggestions, agreements, and rejections, then assigns confidence scores to determine when a decision should be pinned.
-
-I then built the **real-time chat system** using WebSockets so that decisions, messages, and updates sync instantly across users.
-
-Once decisions could be tracked, I created the **auto-pin system**, allowing the plan to build itself dynamically as the conversation evolves — including handling reversals and changing opinions.
-
-From there, I developed the **itinerary generator**, which converts pinned decisions into structured blocks depending on the type of hangout (e.g. dinner vs picnic).
-
-Finally, I added the **system personality layer**, introducing small, context-aware messages to guide users through indecision and increase engagement.
-
-Throughout the process, I prioritised behaviour and system logic over UI polish to validate the core concept.
-
----
-
-## 📚 What I Learned
-
-### 🧠 Decision Systems & Logic
-Building the decision engine taught me how to model human behaviour (agreement, disagreement, indecision) into structured logic using scoring systems and thresholds.
-
----
-
-### ⚖️ Handling Edge Cases
-I learned that edge cases define the product:
-- Split decisions  
-- Non-responsive users  
-- Conflicting inputs  
-
-Designing for these made the system feel reliable.
-
----
-
-### 🔄 Real-Time Systems
-Using Socket.IO helped me understand how to manage live updates across multiple users, especially when state changes frequently.
-
----
-
-### 🧩 System Design Thinking
-Instead of building features, I had to think in systems:
-- Scheduling system  
-- Decision system  
-- Itinerary system  
-
-Each part needed to work independently and together.
-
----
-
-### 🎭 Product Experience
-The personality layer showed me how small UX details (like nudges and tone) can significantly impact user behaviour and engagement.
-
----
-
-### 📉 Simplicity vs Intelligence
-I learned that a simple rules-based system (keywords + scoring) can achieve 80% of the value without needing heavy AI.
-
----
-
-## 💭 How can it be improved?
-
-- Add AI-based intent detection for more accurate decisions  
-- Integrate with Google/Apple Calendar  
-- Add venue recommendations (restaurants, activities)  
-- Improve UI/UX polish and responsiveness  
-- Add expense splitting  
-- Introduce user preferences (favourite cuisines, times)  
-- Improve notification system (timing + personalisation)  
-
----
-
-## 🚦 Running the Project
-
-To run the project locally:
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-repo/sorted.git
-cd sorted
+> What if plans could organise themselves?
