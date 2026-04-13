@@ -12,7 +12,7 @@ This is an autonomous hangout planning app that turns messy group chats into act
 * Node.js (Express)
 * PostgreSQL
 * Socket.IO
-* CSS
+* Tailwind CSS
 
 🦄 Features
 ---
